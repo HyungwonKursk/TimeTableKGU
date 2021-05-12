@@ -10,6 +10,7 @@ namespace TimeTableKGU.Models
         public int Group_number { get; set; }
         public int Course { get; set; }
         public int Subgroups_number { get; set; }
+        public Direction Direction { get; set; }
         public ICollection<Lesson> Lessons { get; set; }
         public ICollection<Student> Students { get; set; }
         public Group()

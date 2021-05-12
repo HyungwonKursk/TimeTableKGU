@@ -8,7 +8,7 @@ namespace TimeTableKGU.Models
     {
         public int LessonId { get; set; }
         public int? ClassroomId { get; set; }
-        public int Lesson_number { get; set; }
+        public int? Lesson_number { get; set; }
         public int? DisciplineId { get; set; }
         public string Lesson_type { get; set; }
         public int? WeekId { get; set; }

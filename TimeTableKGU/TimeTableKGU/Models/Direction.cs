@@ -8,5 +8,10 @@ namespace TimeTableKGU.Models
     {
         public int DirectionId { get; set; }
         public string Name { get; set; }
+        public ICollection<Group> Groups { get; set; }
+        public Direction()
+        {
+            Groups = new List<Group>();
+        }
     }
 }
