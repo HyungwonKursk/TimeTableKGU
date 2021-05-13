@@ -14,13 +14,10 @@ namespace TimeTableKGU.DataBase
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Direction> Directions { get; set; }
         public DbSet<Subject> Subjects { get; set; }
-
-
         public DbSet<Group> Groups { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
-
         public DbSet<Week> Weeks { get; set; }
 
         private string databaseName;
