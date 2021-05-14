@@ -18,7 +18,7 @@ namespace TimeTableKGU.Models
         public DateTime Lesson_finish { get; set; }
         public string Link { get; set; }
         public Room Classroom { get; set; }
-        public Subject Discipline { get; set; }
+        public Subject Subject { get; set; }
         public Week Week { get; set; }
         public Group Group { get; set; }
         public Teacher Teacher { get; set; }

@@ -1,4 +1,5 @@
 ﻿using System;
+using TimeTableKGU.DataBase;
 using TimeTableKGU.Services;
 using TimeTableKGU.Views;
 using Xamarin.Forms;
@@ -13,7 +14,13 @@ namespace TimeTableKGU
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            //DependencyService.Register<MockDataStore>();
+            // создать базу данных если ее еще нет
+            DbService.RefrashDb(false);
+
+            // загрузить все данные из базы
+            DbService.LoadAll();
+
             MainPage = new AppShell();
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using TimeTableKGU.Models;
+using TimeTableKGU.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
@@ -26,6 +27,21 @@ namespace TimeTableKGU.DataBase
         public static void SaveDb()
         {
             db.SaveChanges();
+        }
+        /// <summary>
+        /// Загрузить все данные из базы в память (при запуске)
+        /// </summary>
+        public static void LoadAll()
+        {
+            DirectionData.Directions = LoadAllDirections();
+            GroupData.Groups = LoadAllGroups();
+            LessonData.Lessons = LoadAllLessons();
+            RoomData.Rooms = LoadAllRooms();
+            StudentData.Students = LoadAllStudents();
+            SubjectData.Subjects = LoadAllSubjects();
+            TeacherData.Teachers = LoadAllTeachers();
+            WeekData.Weeks = LoadAllWeeks();
+            
         }
 
         #region Group
