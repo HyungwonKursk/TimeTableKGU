@@ -8,7 +8,7 @@ namespace TimeTableKGU.Models
     {
         public int WeekId { get; set; }
         public string Week_day { get; set; }
-        public string Parity { get; set; }
+        public string Parity { get; set; }//числитель или знаменатель
         public ICollection<Lesson> Lessons { get; set; }
         public Week()
         {

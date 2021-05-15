@@ -43,6 +43,9 @@
                       Icon="Autoriz.png" 
                       Route="AboutPage" 
                       ContentTemplate="{DataTemplate local:AuthorizationPage}" />
+        <ShellContent Title="Расписание" 
+                      Icon="study.png" 
+                      ContentTemplate="{DataTemplate local:TimeTablePage}" />
         <ShellContent Title="Поиск" 
                       Icon="search.png" 
                       ContentTemplate="{DataTemplate local:SearchPage}" />
