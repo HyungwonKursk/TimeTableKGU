@@ -1,5 +1,7 @@
 ﻿using System;
 using TimeTableKGU.DataBase;
+using TimeTableKGU.Data;
+using TimeTableKGU.Models;
 using TimeTableKGU.Services;
 using TimeTableKGU.Views;
 using Xamarin.Forms;
@@ -22,6 +24,7 @@ namespace TimeTableKGU
             DbService.LoadAll();
 
             MainPage = new AppShell();
+            TimeTableData t = new TimeTableData();
         }
 
         protected override void OnStart()
