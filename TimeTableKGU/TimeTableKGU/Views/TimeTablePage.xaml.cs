@@ -15,6 +15,12 @@ namespace TimeTableKGU.Views
     public partial class TimeTablePage : ContentPage
     {
         Grid grid;
+        public Button Mon { get; set; }
+        public Button Tue { get; set; }
+        public Button Wed { get; set; }
+        public Button Thu { get; set; }
+        public Button Fri { get; set; }
+        public Button Sat { get; set; }
         public TimeTablePage()
         {
             InitializeComponent();
@@ -47,7 +53,12 @@ namespace TimeTableKGU.Views
                 }
 
             };
-            
+            Mon = new Button { Text = "ПОНЕДЕЛЬНИК" };
+            Tue = new Button { Text = "ВТОРНИК" };
+            Wed = new Button { Text = "СРЕДА" };
+            Thu = new Button { Text = "ЧЕТВЕРГ" };
+            Fri = new Button { Text = "ПЯТНИЦА" };
+            Sat = new Button { Text = "СУББОТА" };
             ScrollView scrollView = new ScrollView { Content = grid };
             // Build the page.
             stackLayout.Children.Add(scrollView);
@@ -56,9 +67,6 @@ namespace TimeTableKGU.Views
         void picker_SelectedIndexChanged(object sender, EventArgs e)
         {
             int x = 0;int y = 0;
-            var Day = from timatable in TimeTableData.TimeTables
-                      where timatable.Parity == "числитель"
-                      select timatable;
 
             if (picker.SelectedIndex == -1)
             {
@@ -68,11 +76,190 @@ namespace TimeTableKGU.Views
 
             if (picker.Items[picker.SelectedIndex] == "Числитель")
             {
+                grid.Children.Clear();
+
                 #region Понедельник
-                grid.Children.Add(new Label { Text = "Понедельник", HorizontalTextAlignment = TextAlignment.Center, }, x+1, y);
-                Day = from timatable in Day
-                      where timatable.Week_day == "понедельник"
+                grid.Children.Add(Mon, x + 1, y);
+                var Day = from timatable in TimeTableData.TimeTables
+                          where timatable.Parity == "числитель"
+                          where timatable.Week_day == "понедельник"
+                          select timatable;
+                y++;
+                foreach (TimeTable timetables in Day)
+                {
+                    grid.Children.Add(new Label { Text = timetables.Time, HorizontalTextAlignment = TextAlignment.Center }, x, y);
+                    x++;
+                    grid.Children.Add(new Label
+                    {
+                        Text = timetables.Subject + " " +
+                        timetables.Name_Group,
+                        // HorizontalTextAlignment = TextAlignment.Center
+                    }, x, y);
+                    x++;
+                    if (timetables.Room_Number == 0)
+                    {
+
+                        grid.Children.Add(new Label { Text = Convert.ToString(timetables.Link), HorizontalTextAlignment = TextAlignment.Center }, x, y);
+                    }
+                    else
+                        grid.Children.Add(new Label { Text = Convert.ToString(timetables.Room_Number), HorizontalTextAlignment = TextAlignment.Center }, x, y);
+
+                    x++;
+                    y++; x = 0;
+                }
+                #endregion
+
+                #region Вторник
+                grid.Children.Add(Tue, x + 1, y);
+                Day = from timatable in TimeTableData.TimeTables
+                      where timatable.Parity == "числитель"
+                      where timatable.Week_day == "вторник"
                       select timatable;
+                y++;
+                foreach (TimeTable timetables in Day)
+                {
+                    grid.Children.Add(new Label { Text = timetables.Time, HorizontalTextAlignment = TextAlignment.Center }, x, y);
+                    x++;
+                    grid.Children.Add(new Label
+                    {
+                        Text = timetables.Subject + " " +
+                        timetables.Name_Group,
+                        // HorizontalTextAlignment = TextAlignment.Center
+                    }, x, y);
+                    x++;
+                    if (timetables.Room_Number == 0)
+                        grid.Children.Add(new Label { Text = Convert.ToString(timetables.Link), HorizontalTextAlignment = TextAlignment.Center }, x, y);
+
+                    else
+                        grid.Children.Add(new Label { Text = Convert.ToString(timetables.Room_Number), HorizontalTextAlignment = TextAlignment.Center }, x, y);
+
+                    x++;
+                    y++; x = 0;
+                }
+                #endregion
+                #region Среда
+                grid.Children.Add(Wed, x + 1, y);
+                Day = from timatable in TimeTableData.TimeTables
+                      where timatable.Parity == "числитель"
+                      where timatable.Week_day == "среда"
+                      select timatable;
+                y++;
+                foreach (TimeTable timetables in Day)
+                {
+                    grid.Children.Add(new Label { Text = timetables.Time, HorizontalTextAlignment = TextAlignment.Center }, x, y);
+                    x++;
+                    grid.Children.Add(new Label
+                    {
+                        Text = timetables.Subject + " " +
+                        timetables.Name_Group,
+                        //HorizontalTextAlignment = TextAlignment.Center
+                    }, x, y);
+                    x++;
+                    if (timetables.Room_Number == 0)
+                        grid.Children.Add(new Label { Text = Convert.ToString(timetables.Link), HorizontalTextAlignment = TextAlignment.Center }, x, y);
+
+                    else
+                        grid.Children.Add(new Label { Text = Convert.ToString(timetables.Room_Number), HorizontalTextAlignment = TextAlignment.Center }, x, y);
+                    x++;
+                    y++; x = 0;
+                }
+                #endregion
+                #region Четверг
+                grid.Children.Add(Thu, x + 1, y);
+                Day = from timatable in TimeTableData.TimeTables
+                      where timatable.Parity == "числитель"
+                      where timatable.Week_day == "четверг"
+                      select timatable;
+                y++;
+                foreach (TimeTable timetables in Day)
+                {
+                    grid.Children.Add(new Label { Text = timetables.Time }, x, y);
+                    x++;
+                    grid.Children.Add(new Label
+                    {
+                        Text = timetables.Subject + " " +
+                        timetables.Name_Group
+                    }, x, y);
+                    x++;
+                    if (timetables.Room_Number == 0)
+                        grid.Children.Add(new Label { Text = Convert.ToString(timetables.Link), HorizontalTextAlignment = TextAlignment.Center }, x, y);
+
+                    else
+                        grid.Children.Add(new Label { Text = Convert.ToString(timetables.Room_Number), HorizontalTextAlignment = TextAlignment.Center }, x, y);
+                    x++;
+                    y++; x = 0;
+                }
+                #endregion
+                #region Пятница
+                grid.Children.Add(Fri, x + 1, y);
+                Day = from timatable in TimeTableData.TimeTables
+                      where timatable.Parity == "числитель"
+                      where timatable.Week_day == "пятница"
+                      select timatable;
+                y++;
+                foreach (TimeTable timetables in Day)
+                {
+                    grid.Children.Add(new Label { Text = timetables.Time }, x, y);
+                    x++;
+                    grid.Children.Add(new Label
+                    {
+                        Text = timetables.Subject + " " +
+                        timetables.Name_Group
+                    }, x, y);
+                    x++;
+                    if (timetables.Room_Number == 0)
+                        grid.Children.Add(new Label { Text = Convert.ToString(timetables.Link), HorizontalTextAlignment = TextAlignment.Center }, x, y);
+
+                    else
+                        grid.Children.Add(new Label { Text = Convert.ToString(timetables.Room_Number), HorizontalTextAlignment = TextAlignment.Center }, x, y);
+                    x++;
+                    y++; x = 0;
+                }
+                #endregion
+                #region Суббота
+                grid.Children.Add(Sat, x + 1, y);
+                Day = from timatable in TimeTableData.TimeTables
+                      where timatable.Parity == "числитель"
+                      where timatable.Week_day == "суббота"
+                      select timatable;
+                y++;
+                foreach (TimeTable timetables in Day)
+                {
+                    grid.Children.Add(new Label { Text = timetables.Time }, x, y);
+                    x++;
+                    grid.Children.Add(new Label
+                    {
+                        Text = timetables.Subject + " " +
+                        timetables.Name_Group
+                    }, x, y);
+                    x++;
+                    if (timetables.Room_Number == 0)
+                        grid.Children.Add(new Label { Text = Convert.ToString(timetables.Link), HorizontalTextAlignment = TextAlignment.Center }, x, y);
+
+                    else
+                        grid.Children.Add(new Label { Text = Convert.ToString(timetables.Room_Number), HorizontalTextAlignment = TextAlignment.Center }, x, y);
+                    x++;
+                    y++; x = 0;
+                }
+                #endregion
+
+
+
+
+
+
+            }
+            else
+            if (picker.Items[picker.SelectedIndex] == "Знаменатель")
+            {
+                grid.Children.Clear();
+
+                #region Понедельник
+                grid.Children.Add(Mon, x + 1, y);
+                var Day = from timatable in TimeTableData.TimeTables
+                          where timatable.Parity == "знаменатель"
+                          where timatable.Week_day == "понедельник"
+                          select timatable;
                 y++;
                 foreach (TimeTable timetables in Day)
                 {
@@ -91,8 +278,9 @@ namespace TimeTableKGU.Views
                 #endregion
 
                 #region Вторник
-                grid.Children.Add(new Label { Text = "Вторник", HorizontalTextAlignment = TextAlignment.Center, }, x + 1, y);
+                grid.Children.Add(Tue, x + 1, y);
                 Day = from timatable in TimeTableData.TimeTables
+                      where timatable.Parity == "знаменатель"
                       where timatable.Week_day == "вторник"
                       select timatable;
                 y++;
@@ -111,15 +299,94 @@ namespace TimeTableKGU.Views
                     y++; x = 0;
                 }
                 #endregion
-
-
-
-
-            }
-            else
-            if (picker.Items[picker.SelectedIndex] == "Знаменатель")
-            {
-                DependencyService.Get<IToast>().Show("Знаменатель");
+                #region Среда
+                grid.Children.Add(Wed, x + 1, y);
+                Day = from timatable in TimeTableData.TimeTables
+                      where timatable.Parity == "знаменатель"
+                      where timatable.Week_day == "среда"
+                      select timatable;
+                y++;
+                foreach (TimeTable timetables in Day)
+                {
+                    grid.Children.Add(new Label { Text = timetables.Time }, x, y);
+                    x++;
+                    grid.Children.Add(new Label
+                    {
+                        Text = timetables.Subject + " " +
+                        timetables.Name_Group
+                    }, x, y);
+                    x++;
+                    grid.Children.Add(new Label { Text = Convert.ToString(timetables.Room_Number) }, x, y);
+                    x++;
+                    y++; x = 0;
+                }
+                #endregion
+                #region Четверг
+                grid.Children.Add(Thu, x + 1, y);
+                Day = from timatable in TimeTableData.TimeTables
+                      where timatable.Parity == "знаменатель"
+                      where timatable.Week_day == "четверг"
+                      select timatable;
+                y++;
+                foreach (TimeTable timetables in Day)
+                {
+                    grid.Children.Add(new Label { Text = timetables.Time }, x, y);
+                    x++;
+                    grid.Children.Add(new Label
+                    {
+                        Text = timetables.Subject + " " +
+                        timetables.Name_Group
+                    }, x, y);
+                    x++;
+                    grid.Children.Add(new Label { Text = Convert.ToString(timetables.Room_Number) }, x, y);
+                    x++;
+                    y++; x = 0;
+                }
+                #endregion
+                #region Пятница
+                grid.Children.Add(Fri, x + 1, y);
+                Day = from timatable in TimeTableData.TimeTables
+                      where timatable.Parity == "знаменатель"
+                      where timatable.Week_day == "пятница"
+                      select timatable;
+                y++;
+                foreach (TimeTable timetables in Day)
+                {
+                    grid.Children.Add(new Label { Text = timetables.Time }, x, y);
+                    x++;
+                    grid.Children.Add(new Label
+                    {
+                        Text = timetables.Subject + " " +
+                        timetables.Name_Group
+                    }, x, y);
+                    x++;
+                    grid.Children.Add(new Label { Text = Convert.ToString(timetables.Room_Number) }, x, y);
+                    x++;
+                    y++; x = 0;
+                }
+                #endregion
+                #region Суббота
+                grid.Children.Add(Sat, x + 1, y);
+                Day = from timatable in TimeTableData.TimeTables
+                      where timatable.Parity == "знаменатель"
+                      where timatable.Week_day == "суббота"
+                      select timatable;
+                y++;
+                foreach (TimeTable timetables in Day)
+                {
+                    grid.Children.Add(new Label { Text = timetables.Time }, x, y);
+                    x++;
+                    grid.Children.Add(new Label
+                    {
+                        Text = timetables.Subject + " " +
+                        timetables.Name_Group
+                    }, x, y);
+                    x++;
+                    grid.Children.Add(new Label { Text = Convert.ToString(timetables.Room_Number) }, x, y);
+                    x++;
+                    y++; x = 0;
+                }
+                #endregion
             }
         }
     }

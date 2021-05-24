@@ -9,10 +9,21 @@ namespace TimeTableKGU.Models
         public int StudentId { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public int? GroupId { get; set; }
+        public int Group { get; set; }
         public int Subgroup { get; set; }
         public string Full_Name { get; set; }
         public bool Group_Leader { get; set; }
-        public Group Group { get; set; }
+        public Student() {  }
+        public Student(int k, string l, string p, int g, int s, string f, bool gl)
+
+        {
+            StudentId = k;
+            Login = l;
+            Password = p;
+            Group = g;
+            Subgroup = s;
+            Full_Name = f;
+            Group_Leader = gl;
+        }
     }
 }

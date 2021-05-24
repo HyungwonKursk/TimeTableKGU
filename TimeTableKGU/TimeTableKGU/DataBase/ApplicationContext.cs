@@ -11,14 +11,10 @@ namespace TimeTableKGU.DataBase
     {
 
         // списки подключенных таблиц
-        public DbSet<Room> Rooms { get; set; }
-        public DbSet<Direction> Directions { get; set; }
-        public DbSet<Subject> Subjects { get; set; }
-        public DbSet<Group> Groups { get; set; }
-        public DbSet<Lesson> Lessons { get; set; }
+       
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
-        public DbSet<Week> Weeks { get; set; }
+        public DbSet<TimeTable> TimeTables { get; set; }
 
         private string databaseName;
 
@@ -29,8 +25,9 @@ namespace TimeTableKGU.DataBase
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<TimeTable>().HasKey(m => m.TimeTableId);
 
-            modelBuilder.Entity<Direction>()
+           /* modelBuilder.Entity<Direction>()
                               .HasMany(m => m.Groups)
                               .WithOne(t => t.Direction)
                               .HasForeignKey(m => m.GroupId)
@@ -64,7 +61,7 @@ namespace TimeTableKGU.DataBase
                                  .HasMany(m => m.Lessons)
                                  .WithOne(t => t.Week)
                                  .HasForeignKey(m => m.LessonId)
-                                 .OnDelete(DeleteBehavior.NoAction);
+                                 .OnDelete(DeleteBehavior.NoAction);*/
 
 
 

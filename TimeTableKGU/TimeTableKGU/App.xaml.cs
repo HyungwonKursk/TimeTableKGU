@@ -2,7 +2,7 @@
 using TimeTableKGU.DataBase;
 using TimeTableKGU.Data;
 using TimeTableKGU.Models;
-using TimeTableKGU.Services;
+
 using TimeTableKGU.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

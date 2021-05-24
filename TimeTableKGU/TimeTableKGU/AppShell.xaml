@@ -49,9 +49,7 @@
         <ShellContent Title="Поиск" 
                       Icon="search.png" 
                       ContentTemplate="{DataTemplate local:SearchPage}" />
-        <ShellContent Title="Browse" 
-                      Icon="icon_feed.png" 
-                      ContentTemplate="{DataTemplate local:ItemsPage}" />
+        
 
     </FlyoutItem>
     
@@ -63,9 +61,7 @@
         <ShellContent Title="Поиск" 
                       Icon="search.png" 
                       ContentTemplate="{DataTemplate local:SearchPage}" />
-        <ShellContent Title="Browse" 
-                      Icon="icon_feed.png" 
-                      ContentTemplate="{DataTemplate local:ItemsPage}" />
+
     </TabBar>
 
     <!--
