@@ -6,11 +6,11 @@ namespace TimeTableKGU.Models
 {
     public class Student
     {
-        public int StudentId { get; set; }
+        public int? StudentId { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public int Group { get; set; }
-        public int Subgroup { get; set; }
+        public int? Group { get; set; }
+        public int? Subgroup { get; set; }
         public string Full_Name { get; set; }
         public bool Group_Leader { get; set; }
         public Student() {  }

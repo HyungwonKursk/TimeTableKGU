@@ -8,6 +8,7 @@ using TimeTableKGU.Data;
 using TimeTableKGU.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using TimeTableKGU.Web.Services;
 
 namespace TimeTableKGU.Views
 {
@@ -64,8 +65,16 @@ namespace TimeTableKGU.Views
             stackLayout.Children.Add(scrollView);
 
         }
-        void picker_SelectedIndexChanged(object sender, EventArgs e)
+
+        protected override void OnAppearing()
         {
+            base.OnAppearing();
+
+        }
+
+         void picker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
             int x = 0;int y = 0;
 
             if (picker.SelectedIndex == -1)
@@ -81,8 +90,8 @@ namespace TimeTableKGU.Views
                 #region Понедельник
                 grid.Children.Add(Mon, x + 1, y);
                 var Day = from timatable in TimeTableData.TimeTables
-                          where timatable.Parity == "числитель"
-                          where timatable.Week_day == "понедельник"
+                          where timatable.Parity == "Числитель"
+                          where timatable.Week_day == "Понедельник"
                           select timatable;
                 y++;
                 foreach (TimeTable timetables in Day)
@@ -112,8 +121,8 @@ namespace TimeTableKGU.Views
                 #region Вторник
                 grid.Children.Add(Tue, x + 1, y);
                 Day = from timatable in TimeTableData.TimeTables
-                      where timatable.Parity == "числитель"
-                      where timatable.Week_day == "вторник"
+                      where timatable.Parity == "Числитель"
+                      where timatable.Week_day == "Вторник"
                       select timatable;
                 y++;
                 foreach (TimeTable timetables in Day)
@@ -140,8 +149,8 @@ namespace TimeTableKGU.Views
                 #region Среда
                 grid.Children.Add(Wed, x + 1, y);
                 Day = from timatable in TimeTableData.TimeTables
-                      where timatable.Parity == "числитель"
-                      where timatable.Week_day == "среда"
+                      where timatable.Parity == "Числитель"
+                      where timatable.Week_day == "Среда"
                       select timatable;
                 y++;
                 foreach (TimeTable timetables in Day)
@@ -167,8 +176,8 @@ namespace TimeTableKGU.Views
                 #region Четверг
                 grid.Children.Add(Thu, x + 1, y);
                 Day = from timatable in TimeTableData.TimeTables
-                      where timatable.Parity == "числитель"
-                      where timatable.Week_day == "четверг"
+                      where timatable.Parity == "Числитель"
+                      where timatable.Week_day == "Четверг"
                       select timatable;
                 y++;
                 foreach (TimeTable timetables in Day)
@@ -193,8 +202,8 @@ namespace TimeTableKGU.Views
                 #region Пятница
                 grid.Children.Add(Fri, x + 1, y);
                 Day = from timatable in TimeTableData.TimeTables
-                      where timatable.Parity == "числитель"
-                      where timatable.Week_day == "пятница"
+                      where timatable.Parity == "Числитель"
+                      where timatable.Week_day == "Пятница"
                       select timatable;
                 y++;
                 foreach (TimeTable timetables in Day)
@@ -219,7 +228,7 @@ namespace TimeTableKGU.Views
                 #region Суббота
                 grid.Children.Add(Sat, x + 1, y);
                 Day = from timatable in TimeTableData.TimeTables
-                      where timatable.Parity == "числитель"
+                      where timatable.Parity == "Числитель"
                       where timatable.Week_day == "суббота"
                       select timatable;
                 y++;
@@ -257,8 +266,8 @@ namespace TimeTableKGU.Views
                 #region Понедельник
                 grid.Children.Add(Mon, x + 1, y);
                 var Day = from timatable in TimeTableData.TimeTables
-                          where timatable.Parity == "знаменатель"
-                          where timatable.Week_day == "понедельник"
+                          where timatable.Parity == "Знаменатель"
+                          where timatable.Week_day == "Понедельник"
                           select timatable;
                 y++;
                 foreach (TimeTable timetables in Day)
@@ -280,8 +289,8 @@ namespace TimeTableKGU.Views
                 #region Вторник
                 grid.Children.Add(Tue, x + 1, y);
                 Day = from timatable in TimeTableData.TimeTables
-                      where timatable.Parity == "знаменатель"
-                      where timatable.Week_day == "вторник"
+                      where timatable.Parity == "Знаменатель"
+                      where timatable.Week_day == "Вторник"
                       select timatable;
                 y++;
                 foreach (TimeTable timetables in Day)
@@ -302,8 +311,8 @@ namespace TimeTableKGU.Views
                 #region Среда
                 grid.Children.Add(Wed, x + 1, y);
                 Day = from timatable in TimeTableData.TimeTables
-                      where timatable.Parity == "знаменатель"
-                      where timatable.Week_day == "среда"
+                      where timatable.Parity == "Знаменатель"
+                      where timatable.Week_day == "Среда"
                       select timatable;
                 y++;
                 foreach (TimeTable timetables in Day)
@@ -324,8 +333,8 @@ namespace TimeTableKGU.Views
                 #region Четверг
                 grid.Children.Add(Thu, x + 1, y);
                 Day = from timatable in TimeTableData.TimeTables
-                      where timatable.Parity == "знаменатель"
-                      where timatable.Week_day == "четверг"
+                      where timatable.Parity == "Знаменатель"
+                      where timatable.Week_day == "Четверг"
                       select timatable;
                 y++;
                 foreach (TimeTable timetables in Day)
@@ -346,8 +355,8 @@ namespace TimeTableKGU.Views
                 #region Пятница
                 grid.Children.Add(Fri, x + 1, y);
                 Day = from timatable in TimeTableData.TimeTables
-                      where timatable.Parity == "знаменатель"
-                      where timatable.Week_day == "пятница"
+                      where timatable.Parity == "Знаменатель"
+                      where timatable.Week_day == "Пятница"
                       select timatable;
                 y++;
                 foreach (TimeTable timetables in Day)
@@ -368,8 +377,8 @@ namespace TimeTableKGU.Views
                 #region Суббота
                 grid.Children.Add(Sat, x + 1, y);
                 Day = from timatable in TimeTableData.TimeTables
-                      where timatable.Parity == "знаменатель"
-                      where timatable.Week_day == "суббота"
+                      where timatable.Parity == "Знаменатель"
+                      where timatable.Week_day == "Суббота"
                       select timatable;
                 y++;
                 foreach (TimeTable timetables in Day)

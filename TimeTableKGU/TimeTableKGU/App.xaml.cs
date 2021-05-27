@@ -21,10 +21,10 @@ namespace TimeTableKGU
             DbService.RefrashDb(false);
 
             // загрузить все данные из базы
-            DbService.LoadAll();
+           DbService.LoadAll();
 
             MainPage = new AppShell();
-            TimeTableData t = new TimeTableData();
+
         }
 
         protected override void OnStart()

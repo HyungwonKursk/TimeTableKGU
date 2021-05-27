@@ -17,33 +17,12 @@ namespace TimeTableKGU.DataBase
         public static void RefrashDb(bool delete = false)
         {
             // Удаляем бд, если она существуеты
-           // if (delete)
+            if (delete)
                 db.Database.EnsureDeleted();
 
             // Создаем бд, если она отсутствует
             db.Database.EnsureCreated();
-           DbService.AddTimeTable(TimeTableData.TimeTables);
-            List<TimeTable> t = new List<TimeTable>();
-            t = DbService.LoadAllTimeTable();
-            DbService.RemoveTimeTable(TimeTableData.TimeTables[0]);
-            t = DbService.LoadAllTimeTable();
-            /*DbService.AddTimeTable(TimeTableData.TimeTables[0]);
-            DbService.AddTimeTable(TimeTableData.TimeTables[1]);
-            DbService.AddTimeTable(TimeTableData.TimeTables[2]);
-            DbService.AddTimeTable(TimeTableData.TimeTables[3]);
-            
 
-            DbService.AddStudent(new Student(0, "sff", "sjfrge", 7, 9, "sfsj we", true));
-            DbService.AddStudent(new Student(0, "sff", "sjfrge", 7, 9, "sfsj we", false));
-
-            List<Student> s = new List<Student>();
-            s = DbService.LoadAllStudent();
-
-            DbService.AddTeacher(new Teacher(0, "DFV", "SFNJ", "DF", "SF", "FGSG"));
-            DbService.AddTeacher(new Teacher(0, "DFV", "SFNJ", "DF", "SF", "FGSGS"));
-
-            List<Teacher> tr = new List<Teacher>();
-            tr = DbService.LoadAllTeacher();*/
         }
 
         public static void SaveDb()
@@ -55,7 +34,8 @@ namespace TimeTableKGU.DataBase
         /// </summary>
         public static void LoadAll()
         {
-          
+            TimeTableData.TimeTables = LoadAllTimeTable();
+            //StudentData sD = new StudentData();
             
         }
         #region TimeTable

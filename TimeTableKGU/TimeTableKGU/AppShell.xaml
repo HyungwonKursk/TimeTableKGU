@@ -49,6 +49,7 @@
         <ShellContent Title="Поиск" 
                       Icon="search.png" 
                       ContentTemplate="{DataTemplate local:SearchPage}" />
+
         
 
     </FlyoutItem>
